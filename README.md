@@ -26,18 +26,15 @@ Structure:
 ```
 <fzpkg_version: int>
 <category: string>
-<run_scripts_with_extra: bool>
 ```
 Example:
 ```
 0
 Tools
-true
 ```
 `fzpkg_version` specifies the fzpkg file version.\
 Right now just the version `0` is supported.\
-`category` should be the app category.\
-`run_scripts_with_extra` specifies whether the EXTRA library should be loaded for executing scripts.
+`category` should be the app category.
 
 ## `data/`
 Files in this directory will be copied to `/ext/<path>/<filename>`.\
@@ -55,5 +52,5 @@ There can be multiple `.fap` files in one `.fzpkg` file.
 ## `bundle.sh`
 Usage:
 ```sh
-./bundle.sh -d <data_path> -s <scripts_path> -f <fap_path> -c <category_name> [-e]
+./bundle.sh -d <data_path> -s <scripts_path> -f <fap_path> -c <category_name>
 ```

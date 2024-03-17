@@ -3,8 +3,6 @@
 #include <gui/gui.h>
 #include <input/input.h>
 
-#include "EXTRA/extra.h"
-
 // Screen is 128x64 px
 static void app_draw_callback(Canvas* canvas, void* ctx) {
     UNUSED(ctx);
