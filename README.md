@@ -51,3 +51,9 @@ All the files will be overwritten.
 ## `app_name.fap`
 The main FAP file. Will be copied to `/ext/apps/<category>/<app_name>.fap`.
 There can be multiple `.fap` files in one `.fzpkg` file.
+
+## `bundle.sh`
+Usage:
+```sh
+./bundle.sh -d <data_path> -s <scripts_path> -f <fap_path> -c <category_name> [-e]
+```
