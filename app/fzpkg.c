@@ -2,6 +2,15 @@
 
 #include <gui/gui.h>
 #include <input/input.h>
+#include <dialogs/dialogs.h>
+#include <storage/storage.h>
+#include <lib/toolbox/tar/tar_archive.h>
+
+#define FILES_PATH "/ext/apps_data/fzpkg"
+#define FILE_EXTENSION ".tar"
+
+FuriString* file_path;
+
 
 // Screen is 128x64 px
 static void app_draw_callback(Canvas* canvas, void* ctx) {
@@ -32,7 +41,17 @@ int32_t fzpkg_main(void* p) {
 
     InputEvent event;
 
-    bool running = true;
+    Storage* storage = furi_record_open(RECORD_STORAGE);
+    storage_simply_mkdir(storage, FILES_PATH);
+
+    file_path = furi_string_alloc_set_str(FILES_PATH);
+    DialogsFileBrowserOptions browser_options;
+    dialog_file_browser_set_basic_options(&browser_options, FILE_EXTENSION, NULL);
+    browser_options.base_path = FILES_PATH;
+    DialogsApp* dialogs = furi_record_open(RECORD_DIALOGS);
+    bool running = dialog_file_browser_show(dialogs, file_path, file_path, &browser_options);
+    furi_record_close(RECORD_DIALOGS);
+
     while(running) {
         if(furi_message_queue_get(event_queue, &event, 100) == FuriStatusOk) {
             if(event.type == InputTypePress && event.key == InputKeyBack) running = false;
