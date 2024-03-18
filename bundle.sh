@@ -31,6 +31,26 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [ -z "$DATA" ]; then
+  echo "Data directory not specified"
+  exit 2
+fi
+
+if [ -z "$SCRIPTS" ]; then
+  echo "Scripts directory not specified"
+  exit 2
+fi
+
+if [ -z "$FAP" ]; then
+  echo "FAP file not specified"
+  exit 2
+fi
+
+if [ -z "$CATEGORY" ]; then
+  echo "Category not specified"
+  exit 2
+fi
+
 rm -rf /tmp/fzpkg/
 mkdir /tmp/fzpkg/
 mkdir /tmp/fzpkg/scripts
