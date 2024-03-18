@@ -61,7 +61,7 @@ cp $FAP /tmp/fzpkg/
 echo 0 > /tmp/fzpkg/meta.txt
 echo $CATEGORY >> /tmp/fzpkg/meta.txt
 
-cp $SCRIPTS/* /tmp/fzpkg/scripts
-cp $DATA/* /tmp/fzpkg/data
+cp -r $SCRIPTS/* /tmp/fzpkg/scripts
+cp -r $DATA/* /tmp/fzpkg/data
 
 tar -cf out.tar -C /tmp/fzpkg/ $(ls /tmp/fzpkg/)
