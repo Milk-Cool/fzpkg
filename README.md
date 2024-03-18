@@ -16,7 +16,6 @@ It's a tar file with these files inside:
                 image.bmp
     scripts/
         install.txt
-        delete.txt
     app_name.fap
 ```
 
@@ -42,8 +41,7 @@ Writing files to `/int` will most likely never be supported.\
 All the files will be overwritten.
 
 ## `scripts/`
-`scripts/install.txt` will be executed after copying the FAP and the `data/` files.\
-`scripts/delete.txt` will be executed from the FZPkg app when deleting the app. **IMPORTANT**: You have to remove the FAP yourself here.
+`scripts/install.txt` will be executed after copying the FAP and the `data/` files.
 
 ## `app_name.fap`
 The main FAP file. Will be copied to `/ext/apps/<category>/<app_name>.fap`.
